@@ -5,7 +5,22 @@
       "hostname": "mysite",
       "template": "apache",
       "peer-criteria": "HTTP-optdyn",
-      "size": "SMALL"
+      "size": "SMALL",
+      "count" : "${containerCount}",
+      "port-mapping": [
+        {
+          "protocol": "http",
+          "domain": "${domain}",
+          "internal-port": "80",
+          "external-port": "80"
+        },
+         {
+          "protocol": "tcp",
+          "domain": "${domain}",
+          "internal-port": "80",
+          "external-port": "8080"
+        }
+      ]
     }
   ],
   "peer-criteria": [
@@ -39,6 +54,12 @@
       "type": "string",
       "default": "wordpress env",
       "validation": "[a-zA-Z0-9]+"
+    },
+   "containerCount": {
+      "description": "test",
+      "type": "int",
+      "default": "50",
+      "validation": "\\d+"
     }
   }
 }
