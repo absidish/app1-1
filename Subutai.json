@@ -5,8 +5,7 @@
       "hostname": "mysite",
       "template": "apache",
       "peer-criteria": "HTTP-optdyn",
-      "size": "SMALL",
-      "count" : "${containerCount}",
+      "size": "SMALL"
       "port-mapping": [
         {
           "protocol": "http",
@@ -54,12 +53,6 @@
       "type": "string",
       "default": "wordpress env",
       "validation": "[a-zA-Z0-9]+"
-    },
-   "containerCount": {
-      "description": "test",
-      "type": "int",
-      "default": "50",
-      "validation": "\\d+"
     }
   }
 }
