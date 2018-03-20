@@ -20,7 +20,13 @@
           "external-port": "8080"
         }
       ]
-    }
+    },
+        {
+      "hostname": "mysite",
+      "template": "apache",
+      "peer-criteria": "HTTP-optdyn",
+      "size": "SMALL"
+        }
   ],
   "peer-criteria": [
     {
