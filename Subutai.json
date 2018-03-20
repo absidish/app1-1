@@ -6,6 +6,7 @@
       "template": "apache",
       "peer-criteria": "HTTP-optdyn",
       "size": "SMALL",
+      "count": "2",
       "port-mapping": [
         {
           "protocol": "http",
@@ -24,13 +25,16 @@
         {
       "hostname": "mysite",
       "template": "apache",
-      "peer-criteria": "HTTP-optdyn",
+      "peer-criteria": "HTTP-optdyn3",
       "size": "SMALL"
         }
   ],
   "peer-criteria": [
     {
       "name": "HTTP-optdyn"
+    },
+      {
+      "name": "HTTP-optdyn3"
     }
   ],
   "ansible-configuration": {
