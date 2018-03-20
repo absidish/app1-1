@@ -23,7 +23,7 @@
       ]
     },
         {
-      "hostname": "mysite",
+      "hostname": "mysite1212",
       "template": "apache",
       "peer-criteria": "HTTP-optdyn3",
       "size": "SMALL"
