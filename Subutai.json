@@ -1,0 +1,44 @@
+{
+ "name": "${envName}",
+  "containers": [
+    {
+      "hostname": "mysite",
+      "template": "apache",
+      "peer-criteria": "HTTP-optdyn",
+      "size": "SMALL"
+    }
+  ],
+  "peer-criteria": [
+    {
+      "name": "HTTP-optdyn"
+    }
+  ],
+  "ansible-configuration": {
+  "source-url": "https://github.com/platium1/optdyn/archive/master.zip",
+  "ansible-playbook": "main.yml",
+  "extra-vars": [],
+  "groups": [
+            {
+                "name": "web",
+                "hostnames": [
+                    "mysite"
+                ]
+            }
+        ]            
+  
+  },
+  "user-variables": {
+    "domain": {
+      "description": "Select your domain or create new one",
+      "type": "domain",
+      "default": "mysite.envs.subutai.cloud",
+      "validation": "[a-zA-Z0-9.-]+"
+    },
+     "envName": {
+      "description": "Enter your environment name",
+      "type": "string",
+      "default": "wordpress env",
+      "validation": "[a-zA-Z0-9]+"
+    }
+  }
+}
