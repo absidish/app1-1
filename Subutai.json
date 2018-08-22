@@ -1,44 +1,45 @@
 {
-    "name": "${environmentName}",
-    "description": "Blockchain II",
-    "version": "0.0.1",
-    "author": "https://github.com/lbthomsen",
-    "containers": [
-        {
-            "hostname": "bs0",
-            "template": "debian-stretch",
-            "peer-criteria": "peers",
-            "size": "TINY"
-        }
-    ],
-    "peer-criteria": [
-        {
-            "name": "peers"
-        }
-    ],
-    "ansible-configuration": {
-        "source-url": "https://github.com/absidish/app1-1/archive/master.zip",
-        "ansible-playbook": "site.yml",
-         "extra-vars": [
-            {
-                "key": "text",
-                "value": "${userName}"
-            }, 
-        "groups": [
-            {
-                "name": "bs",
-                "hostnames": [
-                    "bs0"
-                ]
-            }
-        ]
-    },
-    "user-variables": {
-        "userName": {
-            "description": "variable name",
-            "type": "string",
-            "default": "biab2",
-            "validation": "[a-zA-Z0-9]+"
-        }
+  "name": "${environmentName}",
+  "description": "Blockchain II",
+  "version": "0.0.1",
+  "author": "https://github.com/lbthomsen",
+  "containers": [
+    {
+      "hostname": "bs0",
+      "template": "debian-stretch",
+      "peer-criteria": "peers",
+      "size": "TINY"
     }
+  ],
+  "peer-criteria": [
+    {
+      "name": "peers"
+    }
+  ],
+  "ansible-configuration": {
+    "source-url": "https://github.com/absidish/app1-1/archive/master.zip",
+    "ansible-playbook": "site.yml",
+    "extra-vars": [
+      {
+        "key": "text",
+        "value": "${userName}"
+      }
+    ],
+    "groups": [
+      {
+        "name": "bs",
+        "hostnames": [
+          "bs0"
+        ]
+      }
+    ]
+  },
+  "user-variables": {
+    "userName": {
+      "description": "variable name",
+      "type": "string",
+      "default": "biab2",
+      "validation": "[a-zA-Z0-9]+"
+    }
+  }
 }
