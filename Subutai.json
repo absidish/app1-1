@@ -1,69 +1,58 @@
 {
-  "name": "${envName}",
-  "containers": [
-    {
-      "hostname": "mysite",
-      "template": "apache",
-      "peer-criteria": "HTTP-optdyn",
-      "size": "SMALL",
-      "count": "2",
-      "port-mapping": [
+    "name": "${environmentName}",
+    "description": "Blockchain II",
+    "version": "0.0.1",
+    "author": "https://github.com/lbthomsen",
+    "ssh-key": "root",
+    "containers": [
         {
-          "protocol": "http",
-          "domain": "${domain}",
-          "internal-port": "80",
-          "external-port": "80"
-        },
-        {
-          "protocol": "tcp",
-          "domain": "${domain}",
-          "internal-port": "80",
-          "external-port": "8080"
+            "hostname": "bs0",
+            "template": "debian-stretch",
+            "peer-criteria": "peers",
+            "size": "LARGE",
+            "peer-layout": "mm"
         }
-      ]
-    },
-        {
-      "hostname": "mysite1212",
-      "template": "apache",
-      "peer-criteria": "HTTP-optdyn3",
-      "size": "SMALL"
-        }
-  ],
-  "peer-criteria": [
-    {
-      "name": "HTTP-optdyn"
-    },
-      {
-      "name": "HTTP-optdyn3"
-    }
-  ],
-  "ansible-configuration": {
-    "source-url": "https://github.com/platium1/optdyn/archive/master.zip",
-    "ansible-playbook": "main.yml",
-    "extra-vars": [
-      
     ],
-    "groups": [
-      {
-        "name": "web",
-        "hostnames": [
-          "mysite"
+    "peer-criteria": [
+        {
+            "name": "peers"
+        }
+    ],
+    "peer-layouts": [
+        {
+            "name": "mm",
+            "peer-count": "${numberOfMiners}",
+            "container-per-peer": "1"
+        }
+    ],
+    "ansible-configuration": {
+        "source-url": "https://github.com/lbthomsen/subutai-bp-blockchain2/archive/master.zip",
+        "ansible-playbook": "site.yml",
+        "groups": [
+            {
+                "name": "bs",
+                "hostnames": [
+                    "bs0"
+                ]
+            }
         ]
-      }
-    ]
-  },
-  "user-variables": {
-    "domain": {
-      "description": "Select your domain or create new one",
-      "type": "domain",
-      "default": "mysite.envs.subutai.cloud",
-      "validation": "[a-zA-Z0-9.-]+"
     },
-    "envName": {
-      "description": "Enter your environment name",
-      "type": "string",
-      "default": "wordpress env",
-      "validation": "[a-zA-Z0-9]+"
+    "user-variables": {
+        "environmentName": {
+            "description": "Enter the environment name",
+            "type": "string",
+            "default": "biab2",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "numberOfNodes": {
+            "description": "Enter the number of nodes",
+            "type": "int",
+            "default": "2"
+        },
+        "numberOfMiners": {
+            "description": "Enter the number of miners",
+            "type": "int",
+            "default": "2"
+        }
     }
-  }
 }
