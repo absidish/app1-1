@@ -3,4 +3,4 @@
   sudo: yes
   tasks:
     - name: exec shell
-      shell: echo "{{userName}}" >> /tmp/my_message.log
+      shell: echo "{{text}}" >> /tmp/my_message.log
