@@ -1,93 +1,45 @@
 {
-    "name": "${environmentName}",
-    "description": "Rstudio Server",
-    "version": "1.0.0",
-    "author": "https://github.com/marcoarthur",
-    "ssh-key": "mprado", 
-    "containers": [
-        {
-            "hostname": "${webContainerName}",
-            "template": "debian-stretch",
-            "peer-criteria": "HTTP-GROUP",
-            "size": "${containerSize}",
-            "port-mapping": [
-                {
-                    "protocol": "http",
-                    "domain": "${domainName}",
-                    "internal-port": "8787",
-                    "external-port": "80"
-                }
-            ]
-        }
-    ],
-    "peer-criteria": [
-        {
-            "name": "HTTP-GROUP",
-            "max-price": ""
-        }
-    ],
-    "ansible-configuration": {
-        "source-url": "https://github.com/marcoarthur/subutai-blueprint-rstudio/archive/master.zip",
-        "ansible-playbook": "site.yml",
-        "extra-vars": [
-            {
-                "key": "domain_name",
-                "value": "${domainName}"
-            },
-            {
-                "key": "rstudio_user",
-                "value": "${userName}"
-            },
-            {
-                "key": "rstudio_passwd",
-                "value": "${userPasswd}"
-            }
-        ],
-        "groups": [
-            {
-                "name": "rs",
-                "hostnames": [
-                    "${webContainerName}"
-                ]
-            }
-        ]
-    },
-    "user-variables": {
-        "environmentName": {
-            "description": "Enter the environment name",
-            "type": "string",
-            "default": "RstudioServer",
-            "validation": "[a-zA-Z0-9]+"
-        },
-        "webContainerName": {
-            "description": "Enter the container's hostname",
-            "type": "string",
-            "default": "rstudio",
-            "validation": "[a-zA-Z0-9]+"
-        },
-        "domainName": {
-            "description": "Enter the application domain name",
-            "type": "domain",
-            "default": "change.the.domain",
-            "validation": "[a-zA-Z0-9]+"
-        },
-        "userName": {
-            "description": "Enter Rstudio user name",
-            "type": "string",
-            "default": "",
-            "validation": "[a-zA-Z0-9]+"
-        },
-        "userPasswd": {
-            "description": "Enter user password",
-            "type": "string",
-            "default": "",
-            "validation": "[a-zA-Z0-9]+"
-        },
-        "containerSize": {
-            "description": "Container Size",
-            "type": "enum",
-            "default": "MEDIUM",
-            "validation": "TINY,SMALL,MEDIUM,LARGE,HUGE"
-        }
+  "name": "${environmentName}",
+  "description": "Blockchain II",
+  "version": "0.0.1",
+  "author": "https://github.com/lbthomsen",
+  "containers": [
+    {
+      "hostname": "bs0",
+      "template": "debian-stretch",
+      "peer-criteria": "peers",
+      "size": "TINY"
     }
+  ],
+  "peer-criteria": [
+    {
+      "name": "peers"
+    }
+  ],
+  "ansible-configuration": {
+    "source-url": "https://github.com/absidish/app1-1/archive/master.zip",
+    "ansible-playbook": "site.yml",
+    "extra-vars": [
+      {
+        "key": "text",
+        "value": "${userName}"
+      }
+    ],
+    "groups": [
+      {
+        "name": "bs",
+        "hostnames": [
+          "bs0"
+        ]
+      }
+    ]
+  },
+  "user-variables": {
+    "userName": {
+      "description": "variable name",
+      "type": "string",
+      "default": "biab2",
+      "validation": "[a-zA-Z0-9]+"
+    }
+  }
 }
