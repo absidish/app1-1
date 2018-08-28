@@ -1,45 +1,80 @@
 {
   "name": "${environmentName}",
-  "description": "Blockchain II",
-  "version": "0.0.1",
-  "author": "https://github.com/lbthomsen",
+  "description": "test",
+  "version": "1.0.0",
+  "author": "https://github.com/absidish",
   "containers": [
     {
-      "hostname": "bs0",
+      "hostname": "db",
       "template": "debian-stretch",
-      "peer-criteria": "peers",
-      "size": "TINY"
+      "peer-criteria": "gr1",
+      "size": "${dbtype}",
+      "peer-layout": "d1"
+    },
+    {
+      "hostname": "web",
+      "template": "debian-stretch",
+      "peer-criteria": "gr1",
+      "size": "${webtype}",
+      "peer-layout": "d1"
+    }
+  ],
+  "peer-layouts": [
+    {
+      "name": "d1",
+      "peer-count": "3",
+      "container-per-peer": "1"
     }
   ],
   "peer-criteria": [
     {
-      "name": "peers"
+      "name": "gr1"
     }
   ],
   "ansible-configuration": {
-    "source-url": "https://github.com/absidish/app1-1/archive/master.zip",
-    "ansible-playbook": "site.yml",
+    "source-url": "https://github.com/absidish/cluster-app1/archive/master.zip",
+    "ansible-playbook": "main.yml",
     "extra-vars": [
-      {
-        "key": "text",
-        "value": "${userName}"
-      }
     ],
     "groups": [
       {
-        "name": "bs",
+        "name": "monitoring_servers",
         "hostnames": [
-          "bs0"
+          "db"
+        ]
+      },
+      {
+        "name": "web_servers",
+        "hostnames": [
+          "web"
         ]
       }
     ]
   },
   "user-variables": {
-    "userName": {
-      "description": "variable name",
+    "environmentName": {
+      "description": "Enter the environment name",
       "type": "string",
-      "default": "biab2",
-      "validation": ".*"
+      "default": "wp",
+      "validation": "[a-zA-Z0-9]+"
+    },
+    "peerCount": {
+      "description": "peer count",
+      "type": "int",
+      "default": "3",
+      "validation": "\\d+"
+    },
+    "dbtype": {
+      "description": "You can set TINY,SMALL,MEDIUM,LARGE,HUGE",
+      "type": "enum",
+      "default": "SMALL",
+      "validation": "TINY,SMALL,MEDIUM,LARGE,HUGE"
+    },
+    "webtype": {
+      "description": "You can set TINY,SMALL,MEDIUM,LARGE,HUGE",
+      "type": "enum",
+      "default": "SMALL",
+      "validation": "TINY,SMALL,MEDIUM,LARGE,HUGE"
     }
   }
 }
