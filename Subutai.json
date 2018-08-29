@@ -5,13 +5,13 @@
   "author": "https://github.com/absidish",
   "containers": [
     {
-      "hostname": "db",
+      "hostname": "${db}",
       "template": "debian-stretch",
       "peer-criteria": "gr1",
       "size": "${dbtype}"
     },
     {
-      "hostname": "web",
+      "hostname": "${web}",
       "template": "debian-stretch",
       "peer-criteria": "gr1",
       "size": "${webtype}",
@@ -39,13 +39,13 @@
       {
         "name": "monitoring_servers",
         "hostnames": [
-          "db"
+          "${db}"
         ]
       },
       {
         "name": "web_servers",
         "hostnames": [
-          "web"
+          "${web}"
         ]
       }
     ]
