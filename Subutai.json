@@ -12,25 +12,25 @@
             "port-mapping": [
                 {
                     "protocol": "http",
-                    "domain": "${domainName}",
+                    "domain": "as.envs.subutai.io",
                     "internal-port": "80",
                     "external-port": "80"
                 }, 
                 {
                     "protocol": "https",
-                    "domain": "${domainName}",
+                    "domain": "as.envs.subutai.io",
                     "internal-port": "443",
                     "external-port": "443"
                 }, 
                 {
                     "protocol": "http",
-                    "domain": "${domainName}",
+                    "domain": "as.envs.subutai.io",
                     "internal-port": "1080",
                     "external-port": "1080"
                 }, 
                 {
                     "protocol": "https",
-                    "domain": "${domainName}",
+                    "domain": "as.envs.subutai.io",
                     "internal-port": "1443",
                     "external-port": "1443"
                 }
@@ -56,7 +56,7 @@
             },
             {
                 "key": "domain_name",
-                "value": "${domainName}"
+                "value": "as.envs.subutai.io"
             }
         ],
         "groups": [
