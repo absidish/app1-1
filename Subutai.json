@@ -1,107 +1,81 @@
 {
-    "name": "${environmentName}",
-    "description": "AppScale",
-    "version": "3.5",
-    "author": "https://github.com/happyaron",
-    "containers": [
-        {
-            "hostname": "${webContainerName}",
-            "template": "ubuntu-xenial",
-            "peer-criteria": "HTTP-GROUP",
-            "size": "${containerSize}",
-            "port-mapping": [
-                {
-                    "protocol": "http",
-                    "domain": "as.envs.subutai.io",
-                    "internal-port": "80",
-                    "external-port": "80"
-                }, 
-                {
-                    "protocol": "https",
-                    "domain": "as.envs.subutai.io",
-                    "internal-port": "443",
-                    "external-port": "443"
-                }, 
-                {
-                    "protocol": "http",
-                    "domain": "as.envs.subutai.io",
-                    "internal-port": "1080",
-                    "external-port": "1080"
-                }, 
-                {
-                    "protocol": "https",
-                    "domain": "as.envs.subutai.io",
-                    "internal-port": "1443",
-                    "external-port": "1443"
-                }
-            ]
-        }
-    ],
-    "peer-criteria": [
-        {
-            "name": "HTTP-GROUP"
-        }
-    ],
-    "ansible-configuration": {
-        "source-url": "https://github.com/happyaron/appscale-blueprint-small/archive/master.zip",
-        "ansible-playbook": "config.yml",
-        "extra-vars": [
-            {
-                "key": "admin_email",
-                "value": "${adminEmail}"
-            },
-            {
-                "key": "admin_password",
-                "value": "${adminPassword}"
-            },
-            {
-                "key": "domain_name",
-                "value": "as.envs.subutai.io"
-            }
-        ],
-        "groups": [
-            {
-                "name": "appscale",
-                "hostnames": [
-                    "${webContainerName}"
-                ]
-            }
-        ]
-    },
-    "user-variables": {
-        "environmentName": {
-            "description": "Enter the environment name",
-            "type": "string",
-            "default": "appscale",
-            "validation": "[a-zA-Z0-9]+"
-        },
-        "domainName": {
-            "description": "Select your domain or create new one",
-            "type": "domain",
-            "default": "change.the.domain",
-            "validation": "[a-zA-Z0-9]+"
-        },
-        "adminEmail": {
-            "description": "Enter the admin email",
-            "type": "string",
-            "default": "a@a.com"
-        },
-        "adminPassword": {
-            "description": "Enter the admin password",
-            "type": "password",
-            "default": "appscale"
-        },
-        "webContainerName": {
-            "description": "Enter the container's hostname",
-            "type": "string",
-            "default": "appscale",
-            "validation": "[a-zA-Z0-9]+"
-        },
-        "containerSize": {
-            "description": "Container Size",
-            "type": "enum",
-            "default": "HUGE",
-            "validation": "TINY,SMALL,MEDIUM,LARGE,HUGE"
-        }
+  "name": "${environmentName}",
+  "description": "AppScale",
+  "version": "3.5",
+  "author": "https://github.com/happyaron",
+  "containers": [
+    {
+      "hostname": "${webContainerName}",
+      "template": "ubuntu-xenial",
+      "peer-criteria": "HTTP-GROUP",
+      "size": "${containerSize}"
     }
+  ],
+  "peer-criteria": [
+    {
+      "name": "HTTP-GROUP"
+    }
+  ],
+  "ansible-configuration": {
+    "source-url": "https://github.com/happyaron/appscale-blueprint-small/archive/master.zip",
+    "ansible-playbook": "config.yml",
+    "extra-vars": [
+      {
+        "key": "admin_email",
+        "value": "${adminEmail}"
+      },
+      {
+        "key": "admin_password",
+        "value": "${adminPassword}"
+      },
+      {
+        "key": "domain_name",
+        "value": "as.envs.subutai.io"
+      }
+    ],
+    "groups": [
+      {
+        "name": "appscale",
+        "hostnames": [
+          "${webContainerName}"
+        ]
+      }
+    ]
+  },
+  "user-variables": {
+    "environmentName": {
+      "description": "Enter the environment name",
+      "type": "string",
+      "default": "appscale",
+      "validation": "[a-zA-Z0-9]+"
+    },
+    "domainName": {
+      "description": "Select your domain or create new one",
+      "type": "domain",
+      "default": "change.the.domain",
+      "validation": "[a-zA-Z0-9]+"
+    },
+    "adminEmail": {
+      "description": "Enter the admin email",
+      "type": "string",
+      "default": "a@a.com"
+    },
+    "adminPassword": {
+      "description": "Enter the admin password",
+      "type": "password",
+      "default": "appscale"
+    },
+    "webContainerName": {
+      "description": "Enter the container's hostname",
+      "type": "string",
+      "default": "appscale",
+      "validation": "[a-zA-Z0-9]+"
+    },
+    "containerSize": {
+      "description": "Container Size",
+      "type": "enum",
+      "default": "HUGE",
+      "validation": "TINY,SMALL,MEDIUM,LARGE,HUGE"
+    }
+  }
 }
