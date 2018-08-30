@@ -33,7 +33,7 @@
       {
         "name": "monitoring_servers",
         "hostnames": [
-          "${db}"
+          "${hostname}"
         ]
       }
     ]
