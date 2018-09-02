@@ -29,6 +29,32 @@
                     "external-port": "8087"
                 }
             ]
+        },
+         {
+            "hostname": "${webContainerName1}",
+            "template": "debian-stretch",
+            "peer-criteria": "HTTP-GROUP",
+            "size": "${containerSize}",
+            "port-mapping": [
+                {
+                    "protocol": "http",
+                    "domain": "${domainName11}",
+                    "internal-port": "3000",
+                    "external-port": "80"
+                },
+                {
+                    "protocol": "tcp",
+                    "domain": "${domainName22}",
+                    "internal-port": "1883",
+                    "external-port": "1883"
+                },
+                {
+                    "protocol": "http",
+                    "domain": "${domainName33}",
+                    "internal-port": "8087",
+                    "external-port": "8087"
+                }
+            ]
         }
     ],
     "peer-criteria": [
@@ -86,6 +112,25 @@
             "default": "tick",
             "validation": "[a-zA-Z0-9]+"
         },
+          "domainName11": {
+            "description": "Enter the domain name for Grafana dashboard",
+            "type": "domain",
+            "default": "change.the.domain",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "domainName22": {
+            "description": "Enter the domain name for MQTT",
+            "type": "domain",
+            "default": "change.the.domain",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "domainName33": {
+            "description": "Enter the domain name for InfluxDB",
+            "type": "domain",
+            "default": "change.the.domain",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        
         "domainName1": {
             "description": "Enter the domain name for Grafana dashboard",
             "type": "domain",
@@ -105,6 +150,12 @@
             "validation": "[a-zA-Z0-9]+"
         },
         "webContainerName": {
+            "description": "Enter the container's hostname",
+            "type": "string",
+            "default": "tick",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "webContainerName1": {
             "description": "Enter the container's hostname",
             "type": "string",
             "default": "tick",
