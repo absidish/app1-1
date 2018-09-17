@@ -17,7 +17,7 @@
           "internal-port": "80",
           "external-port": "80"
         },
-            {
+        {
           "protocol": "http",
           "domain": "${domain}",
           "internal-port": "80",
@@ -47,15 +47,17 @@
         "value": "${domain}"
       }
     ],
-     "groups": [	
-            {	
-                "name": "bn",	
-                "hostnames": [	
-                    "db"	
-                ]	
-            }
+    "groups": [
+      {
+        "name": "bn",
+        "hostnames": [
+          "db"
+        ]
+      }
+    ],
+    
   },
-  "user-variables": {
+"user-variables": {
     "environmentName": {
       "description": "Enter the environment name",
       "type": "string",
