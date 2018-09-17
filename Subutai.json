@@ -54,10 +54,9 @@
           "db"
         ]
       }
-    ],
-    
+    ]
   },
-"user-variables": {
+  "user-variables": {
     "environmentName": {
       "description": "Enter the environment name",
       "type": "string",
