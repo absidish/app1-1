@@ -46,7 +46,14 @@
         "key": "domain",
         "value": "${domain}"
       }
-    ]
+    ],
+     "groups": [	
+            {	
+                "name": "bn",	
+                "hostnames": [	
+                    "db"	
+                ]	
+            }
   },
   "user-variables": {
     "environmentName": {
