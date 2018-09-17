@@ -20,13 +20,13 @@
                 },
                 {
                     "protocol": "udp",
-                    "domain": "${discDomain}",
+                    "domain": "${domain}",
                     "internal-port": "30303",
                     "external-port": "${discPort}"
                 }, 
                 {
                     "protocol": "tcp",
-                    "domain": "${rpcDomain}",
+                    "domain": "${domain}",
                     "internal-port": "30303",
                     "external-port": "${rpcPort}"
                 }
@@ -41,7 +41,7 @@
             "port-mapping": [
                 {
                     "protocol": "http",
-                    "domain": "${jsonDomain}",
+                    "domain": "${domain}",
                     "internal-port": "8545",
                     "external-port": "${jsonPort}"
                 }
