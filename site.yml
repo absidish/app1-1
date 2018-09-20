@@ -1,6 +1,6 @@
 ---
-- hosts: monitoring_servers
+- hosts: all
   sudo: yes
   tasks:
     - name: exec shell
-      shell: echoq "sydyk" >> /tmp/my_message.log
+      shell: echo "sydyk" >> /tmp/my_message.log
