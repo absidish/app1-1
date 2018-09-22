@@ -185,7 +185,8 @@
     "numberOfMiners": {
       "description": "Enter the number of miners",
       "type": "int",
-      "default": "2"
+      "default": "2",
+      "validation": "{5-9}"
     },
     "ethereumNetwork": {
       "description": "Enter the ethereum network id",
