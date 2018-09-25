@@ -200,7 +200,7 @@
             "description": "Container Size",
             "type": "enum",
             "default": "LARGE",
-            "validation": "LARGE,HUGE"
+            "validation": "LARGE,HUGE,SMALL,MEDIUM"
         }
     }
 }
