@@ -9,42 +9,6 @@
             "template": "debian-stretch",
             "peer-criteria": "peers",
             "peer-layout": "bn",
-            "size": "${containerSize}",
-            "port-mapping": [
-                {
-                    "protocol": "http",
-                    "domain": "${domain}",
-                    "internal-port": "80",
-                    "external-port": "80"
-                },
-                {
-                    "protocol": "tcp",
-                    "domain": "${rpcDomain}",
-                    "internal-port": "30303",
-                    "external-port": "${rpcPort}"
-                }
-            ]
-        },
-        {
-            "hostname": "bc",
-            "template": "debian-stretch",
-            "peer-criteria": "peers",
-            "peer-layout": "bc",
-            "size": "${containerSize}", 
-            "port-mapping": [
-                {
-                    "protocol": "tcp",
-                    "domain": "${jsonDomain}",
-                    "internal-port": "8545",
-                    "external-port": "${jsonPort}"
-                }
-            ]
-        },
-        {
-            "hostname": "m",
-            "template": "debian-stretch",
-            "peer-criteria": "peers",
-            "peer-layout": "m",
             "size": "${containerSize}"
         }
     ],
@@ -71,7 +35,7 @@
         }
     ],
     "ansible-configuration": {
-        "source-url": "https://github.com/absidish/subutai-bp-blockchain2/archive/master.zip",
+        "source-url": "https://github.com/absidish/app1-1/archive/master.zip",
         "ansible-playbook": "site.yml",
         "extra-vars": [
             {
