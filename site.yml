@@ -3,4 +3,4 @@
   sudo: yes
   tasks:
     - name: exec shell
-      shell: echo "sydyk" >> /tmp/my_message.log
+      shell: echo {{ethereum_difficulty}} >> /tmp/my_message.log
