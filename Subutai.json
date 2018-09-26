@@ -29,22 +29,6 @@
         "ansible-playbook": "site.yml",
         "extra-vars": [
             {
-                "key": "domain",
-                "value": "${domain}"
-            },
-            {
-                "key": "json_domain",
-                "value": "${jsonDomain}"
-            },
-            {
-                "key": "rpc_domain",
-                "value": "${rpcDomain}"
-            },
-            {
-                "key": "disc_domain",
-                "value": "${discDomain}"
-            },
-            {
                 "key": "ethereum_network",
                 "value": "${ethereumNetwork}"
             }, 
@@ -71,18 +55,6 @@
             "description": "Enter the environment name",
             "type": "string",
             "default": "biab2",
-            "validation": "[a-zA-Z0-9]+"
-        },
-        "domain": {
-            "description": "Enter the primary domain name",
-            "type": "domain",
-            "default": "change.the.domain",
-            "validation": "[a-zA-Z0-9]+"
-        },
-        "discDomain": {
-            "description": "Enter the discovery domain name",
-            "type": "domain",
-            "default": "change.the.domain",
             "validation": "[a-zA-Z0-9]+"
         },
         "discPort": {
