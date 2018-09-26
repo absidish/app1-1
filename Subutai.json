@@ -22,16 +22,6 @@
             "name": "bn",
             "peer-count": "1",
             "container-per-peer": "1"
-        },
-        {
-            "name": "bc",
-            "peer-count": "${numberOfNodes}",
-            "container-per-peer": "1"
-        },
-        {
-            "name": "m",
-            "peer-count": "${numberOfMiners}",
-            "container-per-peer": "1"
         }
     ],
     "ansible-configuration": {
@@ -72,18 +62,6 @@
                 "name": "bn",
                 "hostnames": [
                     "bn"
-                ]
-            },
-            {
-                "name": "bc",
-                "hostnames": [
-                    "bc"
-                ]
-            },
-            {
-                "name": "m",
-                "hostnames": [
-                    "m"
                 ]
             }
         ]
