@@ -113,8 +113,8 @@
         "containerSize": {
             "description": "Container Size",
             "type": "enum",
-            "default": "LARGE",
-            "validation": "LARGE,HUGE,SMALL,MEDIUM"
+            "default": "TINY",
+            "validation": "TINY,LARGE,HUGE,SMALL,MEDIUM"
         }
     }
 }
