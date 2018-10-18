@@ -27,7 +27,6 @@
     "ansible-configuration": {
         "source-url": "https://github.com/absidish/app1/archive/master.zip",
         "ansible-playbook": "site.yml",
-        "keep-ansible-container": "${keep}",
         "extra-vars": [
             {
                 "key": "message",
@@ -67,12 +66,6 @@
             "type": "enum",
             "default": "TINY",
             "validation": "TINY,SMALL,MEDIUM,LARGE,HUGE"
-        },
-        "keep": {
-            "description": "Leave ansible container after built environment",
-            "type": "enum",
-            "default": "false",
-            "validation": "true,false"
         },
         "message": {
             "description": "Enter the message",
