@@ -1,37 +1,88 @@
 {
-    "name": "wp",
-    "description": "Wordpress Standalone",
+    "name": "${environmentName}",
+    "description": "Subutai Readthedocs",
     "version": "1.0.0",
-    "author": "https://github.com/absidish",
+    "author": "https://github.com/marcoarthur",
+    "ssh-key": "mprado", 
     "containers": [
         {
-            "hostname": "wp1",
+            "hostname": "${hostName}",
             "template": "debian-stretch",
-            "peer-criteria": "HTTP-GROUP",
-            "size": "TINY"
+            "peer-criteria": "peers",
+            "size": "${containerSize}",
+            "port-mapping": [
+                {
+                    "protocol": "http",
+                    "domain": "${domainName}",
+                    "internal-port": "8000",
+                    "external-port": "80"
+                }
+            ]
         }
     ],
     "peer-criteria": [
         {
-            "name": "HTTP-GROUP"
+            "name": "peers"
         }
     ],
     "ansible-configuration": {
-        "source-url": "https://github.com/absidish/app1/archive/master.zip",
+        "source-url": "https://github.com/subutai-blueprints/subutai-blueprint-readthedocs/archive/master.zip",
         "ansible-playbook": "site.yml",
         "extra-vars": [
             {
-                "key": "message",
-                "value": "message"
+                "key": "user_email",
+                "value": "${adminEmail}"
+            },
+            {
+                "key": "user_password",
+                "value": "${rtdUserPasswd}"
             }
         ],
         "groups": [
             {
-                "name": "wp",
+                "name": "rtd",
                 "hostnames": [
-                    "wp1"
+                    "${hostName}"
                 ]
             }
-        ]
+        ] 
+    },
+    "user-variables": {
+        "environmentName": {
+            "description": "Enter the environment name",
+            "type": "string",
+            "default": "subutai-readthedocs",
+            "validation": "[a-zA-Z0-9\\-]+"
+        },
+        "hostName": {
+            "description": "Enter the hostname",
+            "type": "string",
+            "default": "rtd",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "adminEmail": {
+            "description": "Enter the readthedocs admin email )",
+            "type": "string",
+            "default": "admin@example.com", 
+            "validation": "[a-zA-Z0-9\\@\\.]+"
+        }, 
+        "rtdUserPasswd": {
+            "description": "Enter the admin password",
+            "type": "string",
+            "default": "", 
+            "validation": "[a-zA-Z0-9]+"
+        }, 
+        "domainName": {
+            "description": "Enter the application domain name",
+            "type": "domain",
+            "default": "",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "containerSize": {
+            "description": "Container Size",
+            "type": "enum",
+            "default": "SMALL",
+            "validation": "SMALL,MEDIUM,LARGE"
+        }
     }
 }
