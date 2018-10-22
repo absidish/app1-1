@@ -1,20 +1,19 @@
 {
     "name": "${environmentName}",
-    "description": "Subutai Readthedocs",
+    "description": "Black mamba",
     "version": "1.0.0",
-    "author": "https://github.com/marcoarthur",
-    "ssh-key": "mprado", 
+    "author": "https://github.com/absidish",
     "containers": [
         {
-            "hostname": "${hostName}",
+            "hostname": "${containerName}",
             "template": "debian-stretch",
-            "peer-criteria": "peers",
+            "peer-criteria": "PEER-GROUP",
             "size": "${containerSize}",
             "port-mapping": [
                 {
                     "protocol": "http",
                     "domain": "${domainName}",
-                    "internal-port": "8000",
+                    "internal-port": "3000",
                     "external-port": "80"
                 }
             ]
@@ -22,67 +21,57 @@
     ],
     "peer-criteria": [
         {
-            "name": "peers"
+            "name": "PEER-GROUP"
         }
     ],
     "ansible-configuration": {
-        "source-url": "https://github.com/subutai-blueprints/subutai-blueprint-readthedocs/archive/master.zip",
-        "ansible-playbook": "site.yml",
+        "source-url": "https://github.com/subutai-blueprints/black-mamba/archive/dev.zip",
+        "ansible-playbook": "install-tools.yml",
         "extra-vars": [
             {
-                "key": "user_email",
-                "value": "${adminEmail}"
-            },
-            {
-                "key": "user_password",
-                "value": "${rtdUserPasswd}"
+                "key": "message",
+                "value": "${message}"
             }
         ],
         "groups": [
             {
-                "name": "rtd",
+                "name": "bm",
                 "hostnames": [
-                    "${hostName}"
+                    "${containerName}"
                 ]
             }
-        ] 
+        ]
     },
     "user-variables": {
         "environmentName": {
             "description": "Enter the environment name",
             "type": "string",
-            "default": "subutai-readthedocs",
-            "validation": "[a-zA-Z0-9\\-]+"
-        },
-        "hostName": {
-            "description": "Enter the hostname",
-            "type": "string",
-            "default": "rtd",
+            "default": "wp",
             "validation": "[a-zA-Z0-9]+"
         },
-        "adminEmail": {
-            "description": "Enter the readthedocs admin email )",
-            "type": "string",
-            "default": "admin@example.com", 
-            "validation": "[a-zA-Z0-9\\@\\.]+"
-        }, 
-        "rtdUserPasswd": {
-            "description": "Enter the admin password",
-            "type": "string",
-            "default": "", 
-            "validation": "[a-zA-Z0-9]+"
-        }, 
         "domainName": {
             "description": "Enter the application domain name",
             "type": "domain",
-            "default": "",
+            "default": "change.the.domain",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "webContainerName": {
+            "description": "Enter the container's hostname",
+            "type": "string",
+            "default": "wp",
             "validation": "[a-zA-Z0-9]+"
         },
         "containerSize": {
             "description": "Container Size",
             "type": "enum",
-            "default": "SMALL",
-            "validation": "SMALL,MEDIUM,LARGE"
+            "default": "TINY",
+            "validation": "TINY,SMALL,MEDIUM,LARGE,HUGE"
+        },
+        "message": {
+            "description": "Enter the message",
+            "type": "string",
+            "default": "message",
+            "validation": "[a-zA-Z0-9]+"
         }
     }
 }
