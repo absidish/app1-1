@@ -55,7 +55,7 @@
             "default": "change.the.domain",
             "validation": "[a-zA-Z0-9]+"
         },
-        "webContainerName": {
+        "containerName": {
             "description": "Enter the container's hostname",
             "type": "string",
             "default": "wp",
