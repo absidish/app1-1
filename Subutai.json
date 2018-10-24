@@ -117,13 +117,13 @@
             "default": "2059",
             "validation": "[a-zA-Z0-9]+"
         },
-        "network_id": {
+        "private_key": {
             "description": "private_key",
             "type": "string",
             "default": "54480b163807bcd056d2730353c9778b587a05b4ac5764f88b56c85e56972439",
             "validation": "[a-zA-Z0-9]+"
         },
-        "network_id": {
+        "private_key_pwd": {
             "description": "private_key_pwd",
             "type": "string",
             "default": "mnbv1234",
