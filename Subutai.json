@@ -103,7 +103,7 @@
             "description": "host",
             "type": "string",
             "default": "85.93.89.128",
-            "validation": "*"
+            "validation": "[*]"
         },
         "port": {
             "description": "port",
