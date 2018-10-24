@@ -29,8 +29,28 @@
         "ansible-playbook": "install-tools.yml",
         "extra-vars": [
             {
-                "key": "message",
-                "value": "${message}"
+                "key": "account",
+                "value": "${account}"
+            },
+            {
+                "key": "host",
+                "value": "${host}"
+            },
+            {
+                "key": "port",
+                "value": "${port}"
+            },
+            {
+                "key": "network_id",
+                "value": "${network_id}"
+            },
+            {
+                "key": "private_key",
+                "value": "${private_key}"
+            },
+            {
+                "key": "private_key_pwd",
+                "value": "${private_key_pwd}"
             }
         ],
         "groups": [
@@ -64,13 +84,49 @@
         "containerSize": {
             "description": "Container Size",
             "type": "enum",
-            "default": "TINY",
-            "validation": "TINY,SMALL,MEDIUM,LARGE,HUGE"
+            "default": "LARGE",
+            "validation": "MEDIUM,LARGE,HUGE"
         },
         "message": {
             "description": "Enter the message",
             "type": "string",
             "default": "message",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "account": {
+            "description": "Account",
+            "type": "string",
+            "default": "0x2EC5973E8847099E0234a1c567997d8fCDfE545C",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "host": {
+            "description": "host",
+            "type": "string",
+            "default": "85.93.89.128",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "port": {
+            "description": "port",
+            "type": "string",
+            "default": "8549",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "network_id": {
+            "description": "network_id",
+            "type": "string",
+            "default": "2059",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "network_id": {
+            "description": "private_key",
+            "type": "string",
+            "default": "54480b163807bcd056d2730353c9778b587a05b4ac5764f88b56c85e56972439",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "network_id": {
+            "description": "private_key_pwd",
+            "type": "string",
+            "default": "mnbv1234",
             "validation": "[a-zA-Z0-9]+"
         }
     }
