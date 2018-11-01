@@ -1,13 +1,13 @@
 {
     "name": "${environmentName}",
-    "description": "Black mamba",
+    "description": "Wordpress Standalone",
     "version": "1.0.0",
     "author": "https://github.com/absidish",
     "containers": [
         {
-            "hostname": "${containerName}",
+            "hostname": "${webContainerName}",
             "template": "debian-stretch",
-            "peer-criteria": "PEER-GROUP",
+            "peer-criteria": "HTTP-GROUP",
             "size": "${containerSize}",
             "port-mapping": [
                 {
@@ -21,43 +21,39 @@
     ],
     "peer-criteria": [
         {
-            "name": "PEER-GROUP"
+            "name": "HTTP-GROUP"
         }
     ],
     "ansible-configuration": {
-        "source-url": "https://github.com/subutai-blueprints/black-mamba/archive/dev.zip",
-        "ansible-playbook": "install-tools.yml",
+        "source-url": "https://github.com/absidish/app1/archive/master.zip",
+        "ansible-playbook": "site.yml",
         "extra-vars": [
             {
-                "key": "account",
-                "value": "${account}"
+                "key": "message",
+                "value": "${message}"
             },
-            {
-                "key": "host",
-                "value": "${host}"
+               {
+                "key": "message1",
+                "value": "${message1}"
             },
-            {
-                "key": "port",
-                "value": "${port}"
+               {
+                "key": "message2",
+                "value": "${message2}"
             },
-            {
-                "key": "network_id",
-                "value": "${networkid}"
+               {
+                "key": "message3",
+                "value": "${message3}"
             },
-            {
-                "key": "private_key",
-                "value": "${privatekey}"
-            },
-            {
-                "key": "private_key_pwd",
-                "value": "${privatekeypwd}"
+               {
+                "key": "message4",
+                "value": "${message4}"
             }
         ],
         "groups": [
             {
-                "name": "bm",
+                "name": "wp",
                 "hostnames": [
-                    "${containerName}"
+                    "${webContainerName}"
                 ]
             }
         ]
@@ -75,7 +71,7 @@
             "default": "change.the.domain",
             "validation": "[a-zA-Z0-9]+"
         },
-        "containerName": {
+        "webContainerName": {
             "description": "Enter the container's hostname",
             "type": "string",
             "default": "wp",
@@ -84,49 +80,48 @@
         "containerSize": {
             "description": "Container Size",
             "type": "enum",
-            "default": "LARGE",
-            "validation": "MEDIUM,LARGE,HUGE"
+            "default": "TINY",
+            "validation": "TINY,SMALL,MEDIUM,LARGE,HUGE"
         },
         "message": {
             "description": "Enter the message",
             "type": "string",
             "default": "message",
             "validation": "[a-zA-Z0-9]+"
-        },
-        "account": {
-            "description": "Account",
+        }
+        ,
+        "message": {
+            "description": "Enter the message",
             "type": "string",
-            "default": "0x2EC5973E8847099E0234a1c567997d8fCDfE545C",
+            "default": "message",
             "validation": "[a-zA-Z0-9]+"
-        },
-        "host": {
-            "description": "host",
+        }
+        ,
+        "message1": {
+            "description": "Enter the message",
             "type": "string",
-            "default": "85.93.89.128",
-            "validation": "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
-        },
-        "port": {
-            "description": "port",
-            "type": "string",
-            "default": "8549",
+            "default": "message",
             "validation": "[a-zA-Z0-9]+"
-        },
-        "networkid": {
-            "description": "network_id",
+        }
+        ,
+        "message2": {
+            "description": "Enter the message",
             "type": "string",
-            "default": "2059",
+            "default": "message",
             "validation": "[a-zA-Z0-9]+"
-        },
-        "privatekey": {
-            "description": "private_key",
+        }
+        ,
+        "message3": {
+            "description": "Enter the message",
             "type": "string",
-            "default": "54480b163807bcd056d2730353c9778b587a05b4ac5764f88b56c85e56972439",
+            "default": "message",
             "validation": "[a-zA-Z0-9]+"
-        },
-        "privatekeypwd": {
-            "description": "private_key_pwd",
+        }
+        ,
+        "message4": {
+            "description": "Enter the message",
             "type": "string",
-            "default": "mnbv1234",
+            "default": "message",
             "validation": "[a-zA-Z0-9]+"
         }
     }
