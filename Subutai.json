@@ -90,13 +90,6 @@
             "validation": "[a-zA-Z0-9]+"
         }
         ,
-        "message": {
-            "description": "Enter the message",
-            "type": "string",
-            "default": "message",
-            "validation": "[a-zA-Z0-9]+"
-        }
-        ,
         "message1": {
             "description": "Enter the message",
             "type": "string",
