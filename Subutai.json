@@ -45,10 +45,6 @@
                 "value": "${networkid}"
             },
             {
-                "key": "private_key",
-                "value": "${privatekey}"
-            },
-            {
                 "key": "private_key_pwd",
                 "value": "${privatekeypwd}"
             }
@@ -115,12 +111,6 @@
             "description": "network_id",
             "type": "string",
             "default": "2059",
-            "validation": "[a-zA-Z0-9]+"
-        },
-        "privatekey": {
-            "description": "private_key",
-            "type": "string",
-            "default": "54480b163807bcd056d2730353c9778b587a05b4ac5764f88b56c85e56972439",
             "validation": "[a-zA-Z0-9]+"
         },
         "privatekeypwd": {
