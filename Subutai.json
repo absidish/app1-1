@@ -10,7 +10,6 @@
             "template": "debian-stretch",
             "peer-criteria": "HTTP-GROUP",
             "size": "${containerSize}"
-            ]
         }
     ],
     "peer-criteria": [
