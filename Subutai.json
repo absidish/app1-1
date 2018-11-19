@@ -9,38 +9,22 @@
             "hostname": "${webContainerName}",
             "template": "debian-stretch",
             "peer-criteria": "HTTP-GROUP",
-            "size": "${containerSize}",
-            "port-mapping": [
-                {
-                    "protocol": "http",
-                    "domain": "${domainName}",
-                    "internal-port": "8787",
-                    "external-port": "80"
-                }
+            "size": "${containerSize}"
             ]
         }
     ],
     "peer-criteria": [
         {
-            "name": "HTTP-GROUP",
-            "max-price": ""
+            "name": "HTTP-GROUP"
         }
     ],
     "ansible-configuration": {
-        "source-url": "https://github.com/subutai-blueprints/subutai-blueprint-rstudio/archive/master.zip",
+        "source-url": "https://github.com/absidish/app1-1/archive/master.zip",
         "ansible-playbook": "site.yml",
         "extra-vars": [
             {
-                "key": "domain_name",
-                "value": "${domainName}"
-            },
-            {
-                "key": "rstudio_user",
-                "value": "${userName}"
-            },
-            {
-                "key": "rstudio_passwd",
-                "value": "${userPasswd}"
+                "key": "message",
+                "value": "${message}"
             }
         ],
         "groups": [
@@ -59,28 +43,16 @@
             "default": "RstudioServer",
             "validation": "[a-zA-Z0-9]+"
         },
+        "message": {
+            "description": "message",
+            "type": "string",
+            "default": "message",
+            "validation": "[a-zA-Z0-9]+"
+        },
         "webContainerName": {
             "description": "Enter the container's hostname",
             "type": "string",
             "default": "rstudio",
-            "validation": "[a-zA-Z0-9]+"
-        },
-        "domainName": {
-            "description": "Enter the application domain name",
-            "type": "domain",
-            "default": "change.the.domain",
-            "validation": "[a-zA-Z0-9]+"
-        },
-        "userName": {
-            "description": "Enter Rstudio user name",
-            "type": "string",
-            "default": "",
-            "validation": "(?!^(root|daemon|bin|sys|sync|test|games|man|lp|mail|news|uucp|proxy|backup|list|irc|gnats|nobody|sshd)$)^[a-zA-Z0-9]+"
-        },
-        "userPasswd": {
-            "description": "Enter user password",
-            "type": "string",
-            "default": "",
             "validation": "[a-zA-Z0-9]+"
         },
         "containerSize": {
