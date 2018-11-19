@@ -1,6 +1,4 @@
 ---
 - hosts: all
-  sudo: yes
-  tasks:
-    - name: exec shell
-      shell: echo {{ethereum_difficulty}} >> /tmp/my_message.log
+  roles:
+     - manala.influxdb
