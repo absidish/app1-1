@@ -1,4 +1,6 @@
 ---
 - hosts: all
-  roles:
-     - manala.influxdb
+  sudo: yes
+  tasks:
+    - name: exec shell
+      shell: echo "{{internalPort}}" >> /tmp/my_message.log
