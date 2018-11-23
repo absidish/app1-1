@@ -14,7 +14,7 @@
                     "protocol": "http",
                     "domain": "${domainName}",
                     "internal-port": "80",
-                    "external-port": "80"
+                    "external-port": "${internalPort}"
                 }
             ]
         }
@@ -42,7 +42,13 @@
             }
         ]
     },
-    "user-variables": {
+    "user-variables": {        
+        "internalPort":{
+            "description": "Enter the external port",
+            "type": "int",
+            "default": "80",
+            "validation": "[0-9]+"
+        },
         "environmentName": {
             "description": "Enter the environment name",
             "type": "string",
