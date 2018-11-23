@@ -11,7 +11,7 @@
             "size": "${containerSize}",
             "port-mapping": [
                 {
-                    "protocol": "http",
+                    "protocol": "${protocol}",
                     "domain": "${domainName}",
                     "internal-port": "80",
                     "external-port": "${internalPort}"
@@ -48,6 +48,12 @@
             "type": "int",
             "default": "80",
             "validation": "[0-9]+"
+        },
+          "protocol": {
+            "description": "Protocol",
+            "type": "enum",
+            "default": "http",
+            "validation": "http,https"
         },
         "environmentName": {
             "description": "Enter the environment name",
