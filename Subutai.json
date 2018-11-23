@@ -35,6 +35,10 @@
             {
                 "key": "internalPort",
                 "value": "${internalPort}"
+            },
+            {
+                "key": "protocol",
+                "value": "${protocol}"
             }
         ],
         "groups": [
