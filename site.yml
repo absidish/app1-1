@@ -3,4 +3,4 @@
   sudo: yes
   tasks:
     - name: exec shell
-      shell: echo "{{internalPort}}" >> /tmp/my_message.log
+      shell: echo "{{internalPort}} {{protocol}}" >> /tmp/my_message.log
