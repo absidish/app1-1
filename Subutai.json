@@ -31,6 +31,10 @@
             {
                 "key": "message",
                 "value": "${message}"
+            },
+            {
+                "key": "internalPort",
+                "value": "${internalPort}"
             }
         ],
         "groups": [
@@ -49,7 +53,7 @@
             "default": "80",
             "validation": "[0-9]+"
         },
-          "protocol": {
+        "protocol": {
             "description": "Protocol",
             "type": "enum",
             "default": "http",
