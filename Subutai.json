@@ -91,7 +91,7 @@
             "description": "Enter the message",
             "type": "string",
             "default": "message",
-            "validation": "{*}"
+            "validation": "^$|[a-z]+"
         }
     }
 }
