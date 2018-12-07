@@ -1,6 +1,9 @@
 ---
 - hosts: all
-  sudo: yes
   tasks:
-    - name: exec shell
-      shell: echo "{{internalPort}} {{protocol}}" >> /tmp/my_message.log
+  - name: copy J2
+    template:
+      src: app.conf
+      dest: /tmp/app.conf
+      owner: root
+      mode: "u=rw,g=r,o=r"
