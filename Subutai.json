@@ -39,7 +39,11 @@
             {
                 "key": "protocol",
                 "value": "${protocol}"
-            }
+            },
+            {
+                "key": "web_server_domain",
+                "value": "${domainName}"
+            }            
         ],
         "groups": [
             {
