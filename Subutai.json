@@ -15,7 +15,16 @@
                     "domain": "${domainName}",
                     "internal-port": "80",
                     "external-port": "${internalPort}"
+                    "uniq_proxy": "true"
+                },
+               {
+                    "protocol": "${protocol1}",
+                    "domain": "${domainName1}",
+                    "internal-port": "80",
+                    "external-port": "${internalPort1}"
+                    "uniq_proxy": "true"
                 }
+                
             ]
         }
     ],
@@ -67,6 +76,12 @@
             "default": "http",
             "validation": "http,https"
         },
+              "protocol1": {
+            "description": "Protocol",
+            "type": "enum",
+            "default": "http",
+            "validation": "http,https"
+        },
         "environmentName": {
             "description": "Enter the environment name",
             "type": "string",
@@ -74,6 +89,12 @@
             "validation": "[a-zA-Z0-9]+"
         },
         "domainName": {
+            "description": "Enter the application domain name",
+            "type": "domain",
+            "default": "change.the.domain",
+            "validation": "[a-zA-Z0-9]+"
+        },
+             "domainName1": {
             "description": "Enter the application domain name",
             "type": "domain",
             "default": "change.the.domain",
