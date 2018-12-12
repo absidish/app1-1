@@ -1,8 +1,9 @@
 {
     "name": "${environmentName}",
-    "description": "Wordpress Standalone",
-    "version": "1.0.0",
-    "author": "https://github.com/absidish",
+    "description": "GitLab",
+    "version": "2.0.2",
+    "author": "https://github.com/lbthomsen",
+    "ssh-key": "lth",
     "containers": [
         {
             "hostname": "${webContainerName}",
@@ -11,13 +12,12 @@
             "size": "${containerSize}",
             "port-mapping": [
                 {
-                    "protocol": "${protocol}",
+                    "protocol": "https",
                     "domain": "${domainName}",
                     "internal-port": "443",
-                    "external-port": "${internalPort}",
+                    "external-port": "443",
                     "ssl_backend": "true"
                 }
-                
             ]
         }
     ],
@@ -27,63 +27,32 @@
         }
     ],
     "ansible-configuration": {
-        "source-url": "https://github.com/absidish/app1-1/archive/master.zip",
+        "source-url": "https://github.com/lbthomsen/subutai-blueprint-gitlab/archive/master.zip",
         "ansible-playbook": "site.yml",
         "extra-vars": [
             {
-                "key": "message",
-                "value": "${message}"
-            },
-            {
-                "key": "internalPort",
-                "value": "${internalPort}"
-            },
-            {
-                "key": "protocol",
-                "value": "${protocol}"
-            },
-            {
-                "key": "web_server_domain",
+                "key": "domain_name",
                 "value": "${domainName}"
-            }  
-            ,
+            }, 
             {
-                "key": "web_server_domain1",
-                "value": "${domainName1}"
-            }  
+                "key": "ssh_port", 
+                "value": "${sshPort"
+            }
         ],
         "groups": [
             {
-                "name": "wp",
+                "name": "gl",
                 "hostnames": [
                     "${webContainerName}"
                 ]
             }
         ]
     },
-    "user-variables": {        
-        "internalPort":{
-            "description": "Enter the external port",
-            "type": "int",
-            "default": "80",
-            "validation": "[0-9]+"
-        },
-        "protocol": {
-            "description": "Protocol",
-            "type": "enum",
-            "default": "http",
-            "validation": "http,https"
-        },
-              "protocol1": {
-            "description": "Protocol",
-            "type": "enum",
-            "default": "http",
-            "validation": "http,https"
-        },
+    "user-variables": {
         "environmentName": {
             "description": "Enter the environment name",
             "type": "string",
-            "default": "wp",
+            "default": "nc",
             "validation": "[a-zA-Z0-9]+"
         },
         "domainName": {
@@ -92,29 +61,22 @@
             "default": "change.the.domain",
             "validation": "[a-zA-Z0-9]+"
         },
-             "domainName1": {
-            "description": "Enter the application domain name",
-            "type": "domain",
-            "default": "change.the.domain",
-            "validation": "[a-zA-Z0-9]+"
-        },
         "webContainerName": {
             "description": "Enter the container's hostname",
             "type": "string",
-            "default": "wp",
+            "default": "nc",
             "validation": "[a-zA-Z0-9]+"
         },
         "containerSize": {
             "description": "Container Size",
             "type": "enum",
-            "default": "TINY",
-            "validation": "TINY,SMALL,MEDIUM,LARGE,HUGE"
-        },
-        "message": {
-            "description": "Enter the message",
-            "type": "string",
-            "default": "message",
-            "validation": "^$|[a-z]+"
+            "default": "MEDIUM",
+            "validation": "MEDIUM,LARGE,HUGE"
+        }, 
+        "sshPort": {
+            "description": "SSH Port (1000 - 65535)", 
+            "type": "number", 
+            "default": "13000"
         }
     }
 }
