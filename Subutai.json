@@ -13,16 +13,9 @@
                 {
                     "protocol": "${protocol}",
                     "domain": "${domainName}",
-                    "internal-port": "80",
+                    "internal-port": "443",
                     "external-port": "${internalPort}",
-                    "uniq_proxy": "true"
-                },
-               {
-                    "protocol": "${protocol1}",
-                    "domain": "${domainName1}",
-                    "internal-port": "80",
-                    "external-port": "${internalPort1}",
-                    "uniq_proxy": "true"
+                    "ssl_backend": "true"
                 }
                 
             ]
