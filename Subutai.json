@@ -35,7 +35,7 @@
             }, 
             {
                 "key": "ssh_port", 
-                "value": "${sshPort"
+                "value": "${sshPort}"
             }
         ],
         "groups": [
