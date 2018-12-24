@@ -16,15 +16,23 @@
                     "internal-port": "80",
                     "external-port": "${internalPort}",
                     "uniq_proxy": "true"
-                },
-               {
+                }
+            ]
+        },
+        
+        {
+            "hostname": "${webContainerName1}",
+            "template": "debian-stretch",
+            "peer-criteria": "HTTP-GROUP",
+            "size": "${containerSize}",
+            "port-mapping": [
+                {
                     "protocol": "${protocol1}",
                     "domain": "${domainName1}",
                     "internal-port": "80",
-                    "external-port": "${internalPort1}",
+                    "external-port": "80",
                     "uniq_proxy": "true"
                 }
-                
             ]
         }
     ],
@@ -106,6 +114,12 @@
             "validation": "[a-zA-Z0-9]+"
         },
         "webContainerName": {
+            "description": "Enter the container's hostname",
+            "type": "string",
+            "default": "wp",
+            "validation": "[a-zA-Z0-9]+"
+        },
+                "webContainerName1": {
             "description": "Enter the container's hostname",
             "type": "string",
             "default": "wp",
