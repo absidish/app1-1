@@ -23,7 +23,7 @@
         {
             "hostname": "${webContainerName1}",
             "template": "debian-stretch",
-            "peer-criteria": "HTTP-GROUP",
+            "peer-criteria": "HTTP-GROUP1",
             "size": "${containerSize}",
             "port-mapping": [
                 {
@@ -39,6 +39,9 @@
     "peer-criteria": [
         {
             "name": "HTTP-GROUP"
+        },
+        {
+            "name": "HTTP-GROUP1"
         }
     ],
     "ansible-configuration": {
