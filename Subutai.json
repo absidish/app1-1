@@ -14,8 +14,7 @@
                     "protocol": "${protocol}",
                     "domain": "${domainName}",
                     "internal-port": "80",
-                    "external-port": "${internalPort}",
-                    "uniq_proxy": "true"
+                    "external-port": "${internalPort}"
                 }
             ]
         },
@@ -30,8 +29,7 @@
                     "protocol": "${protocol1}",
                     "domain": "${domainName}",
                     "internal-port": "80",
-                    "external-port": "80",
-                    "uniq_proxy": "true"
+                    "external-port": "80"
                 }
             ]
         }
