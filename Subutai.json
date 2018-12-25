@@ -28,7 +28,7 @@
             "port-mapping": [
                 {
                     "protocol": "${protocol1}",
-                    "domain": "${domainName1}",
+                    "domain": "${domainName}",
                     "internal-port": "80",
                     "external-port": "80",
                     "uniq_proxy": "true"
