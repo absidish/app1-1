@@ -56,12 +56,12 @@
             },
             {
                 "key": "web_server_domain",
-                "value": "${domainName}"
+                "value": "${domainName1}"
             }  
             ,
             {
                 "key": "web_server_domain1",
-                "value": "${domainName1}"
+                "value": "${domainName}"
             }  
         ],
         "groups": [
