@@ -1,9 +1,20 @@
 ---
-- hosts: all
+- name: install es
+  hosts: es
   tasks:
   - name: copy J2
     template:
       src: app.conf
       dest: /tmp/app.conf
+      owner: root
+      mode: "u=rw,g=r,o=r"
+
+- name: install es
+  hosts: wp
+  tasks:
+  - name: copy J2
+    template:
+      src: app1.conf
+      dest: /tmp/app1.conf
       owner: root
       mode: "u=rw,g=r,o=r"
