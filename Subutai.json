@@ -14,7 +14,7 @@
                     "protocol": "${protocol}",
                     "domain": "${domainName}",
                     "internal-port": "80",
-                    "external-port": "${internalPort}"
+                    "external-port": "80"
                 }
             ]
         },
@@ -49,10 +49,6 @@
             {
                 "key": "message",
                 "value": "${message}"
-            },
-            {
-                "key": "internalPort",
-                "value": "${internalPort}"
             },
             {
                 "key": "protocol",
