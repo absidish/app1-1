@@ -70,7 +70,14 @@
                 "hostnames": [
                     "${webContainerName}"
                 ]
+            },
+              {
+                "name": "es",
+                "hostnames": [
+                    "${webContainerName1}"
+                ]
             }
+
         ]
     },
     "user-variables": {        
