@@ -1,6 +1,6 @@
 {
     "name": "${environmentName}",
-    "description": "Wordpress Standalone",
+    "description": "simple app",
     "version": "1.0.0",
     "author": "https://github.com/absidish",
     "containers": [
